@@ -40,7 +40,7 @@ COLUMN_RENAMES = {
     'Proximos a Correr.csv': {
         'eday': 'Fecha de la Carrera',
         'hora_carrera': 'Hora de la Carrera',
-        'ejemplar': 'Ejemplar',
+        'ejemplar': 'Nombre',
         'padrillo': 'Padrillo',
         'yegua': 'Yegua',
         'track': 'Hipódromo',
@@ -54,7 +54,7 @@ COLUMN_RENAMES = {
     },
     'Corrieron en los ultimos 7 dias.csv': {
         'eday': 'Fecha de la Carrera',
-        'ejemplar': 'Ejemplar',
+        'ejemplar': 'Nombre',
         'padrillo': 'Padrillo',
         'yegua': 'Yegua',
         'track': 'Hipódromo',
