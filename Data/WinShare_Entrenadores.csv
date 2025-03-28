@@ -1,38 +1,6 @@
-cuidador,track,surface,dist_group_label,win_share_90,n_carreras_90,win_share_365,n_carreras_365
-Adrian E. Reisenauer,Hipódromo de La Plata,Arena,≤1000 mts,0,2,.15384616,13
-Adrian E. Reisenauer,Hipódromo de La Plata,Arena,1100–1400 mts,.071428575,14,.20408164,98
-Adrian E. Reisenauer,Hipódromo de La Plata,Arena,≥1500 mts,0,2,.10344828,29
-Adrian E. Reisenauer,Hipódromo de Palermo,Arena,≤1000 mts,,,0,2
-Adrian E. Reisenauer,Hipódromo de Palermo,Arena,1100–1400 mts,0,1,0,4
-Adrian E. Reisenauer,Hipódromo de Palermo,Arena,≥1500 mts,0,1,0,1
-Adrian E. Reisenauer,Hipódromo de San Isidro,Arena,1100–1400 mts,.5,2,.42857143,7
-Adrian E. Reisenauer,Hipódromo de San Isidro,Arena,≥1500 mts,,,0,1
-Adrian E. Reisenauer,Hipódromo de San Isidro,Pasto,≤1000 mts,1,1,.66666669,3
-Adrian E. Reisenauer,Hipódromo de San Isidro,Pasto,1100–1400 mts,0,3,.2,5
-Adrian E. Reisenauer,Hipódromo de San Isidro,Pasto,≥1500 mts,,,0,1
-Carlos D. Etchechoury,Hipódromo de Palermo,Arena,1100–1400 mts,1,2,1,2
-Carlos D. Etchechoury,Hipódromo de Palermo,Arena,≥1500 mts,.33333334,3,.33333334,3
-Carlos D. Etchechoury,Hipódromo de Palermo,Pasto,≥1500 mts,0,1,0,1
-Carlos D. Etchechoury,Hipódromo de San Isidro,Pasto,1100–1400 mts,.2857143,14,.2857143,14
-Carlos D. Etchechoury,Hipódromo de San Isidro,Pasto,≥1500 mts,.14285715,7,.14285715,7
-Ezequiel I. Sanchez,Hipódromo de La Plata,Arena,≤1000 mts,0,1,0,1
-Ezequiel I. Sanchez,Hipódromo de La Plata,Arena,1100–1400 mts,.125,8,.125,8
-Ezequiel I. Sanchez,Hipódromo de La Plata,Arena,≥1500 mts,0,4,0,4
-Ezequiel I. Sanchez,Hipódromo de Palermo,Arena,1100–1400 mts,.5,2,.66666669,3
-Ezequiel I. Sanchez,Hipódromo de Palermo,Arena,≥1500 mts,,,1,1
-Ezequiel I. Sanchez,Hipódromo de San Isidro,Arena,1100–1400 mts,.25,4,.25,4
-Ezequiel I. Sanchez,Hipódromo de San Isidro,Pasto,≤1000 mts,0,1,0,1
-Ezequiel I. Sanchez,Hipódromo de San Isidro,Pasto,1100–1400 mts,.33333334,3,.33333334,3
-Ezequiel I. Sanchez,Hipódromo de San Isidro,Pasto,≥1500 mts,0,1,0,4
-Marcos J. Perez,Hipódromo de Palermo,Arena,≤1000 mts,.25,4,.083333336,12
-Marcos J. Perez,Hipódromo de Palermo,Arena,1100–1400 mts,.33333334,3,.22222222,9
-Marcos J. Perez,Hipódromo de San Isidro,Pasto,≤1000 mts,0,1,0,1
-Nicolas A. Gaitan,Hipódromo de La Plata,Arena,1100–1400 mts,.66666669,3,.40000001,5
-Nicolas A. Gaitan,Hipódromo de La Plata,Arena,≥1500 mts,,,0,3
-Nicolas A. Gaitan,Hipódromo de Palermo,Arena,≤1000 mts,0,1,0,1
-Nicolas A. Gaitan,Hipódromo de Palermo,Arena,1100–1400 mts,.5,2,.2,5
-Nicolas A. Gaitan,Hipódromo de Palermo,Arena,≥1500 mts,0,1,0,3
-Nicolas A. Gaitan,Hipódromo de San Isidro,Arena,1100–1400 mts,,,0,1
-Nicolas A. Gaitan,Hipódromo de San Isidro,Arena,≥1500 mts,,,1,1
-Nicolas A. Gaitan,Hipódromo de San Isidro,Pasto,1100–1400 mts,0,3,.21428572,14
-Nicolas A. Gaitan,Hipódromo de San Isidro,Pasto,≥1500 mts,0,1,0,4
+cuidador,track,win_share_90,n_carreras_90,win_share_365,n_carreras_365
+Adrian E. Reisenauer,Hipódromo de La Plata,.1875,32,.17857143,140
+Carlos D. Etchechoury,Hipódromo de San Isidro,.23809524,21,.23809524,21
+Ezequiel I. Sanchez,Hipódromo de La Plata,.07692308,13,.07692308,13
+Juan C. Mosconi,Hipódromo de La Plata,.2,10,.14814815,27
+Juan M. Etchechoury,Hipódromo de San Isidro,.30000001,10,.19047619,84

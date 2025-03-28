@@ -1,51 +1,7 @@
-jockey,track,surface,dist_group_label,win_share_90,n_carreras_90,win_share_365,n_carreras_365
-Anibal J. Cabrera,Hipódromo de La Plata,Arena,≤1000 mts,0,3,.16666667,12
-Anibal J. Cabrera,Hipódromo de La Plata,Arena,1100–1400 mts,.11111111,18,.1827957,93
-Anibal J. Cabrera,Hipódromo de La Plata,Arena,≥1500 mts,0,7,.071428575,28
-Anibal J. Cabrera,Hipódromo de Palermo,Arena,≤1000 mts,,,0,2
-Anibal J. Cabrera,Hipódromo de Palermo,Arena,1100–1400 mts,.33333334,3,.33333334,6
-Anibal J. Cabrera,Hipódromo de Palermo,Arena,≥1500 mts,0,1,0,1
-Anibal J. Cabrera,Hipódromo de Palermo,Pasto,1100–1400 mts,,,0,1
-Anibal J. Cabrera,Hipódromo de San Isidro,Arena,1100–1400 mts,.5,4,.375,8
-Anibal J. Cabrera,Hipódromo de San Isidro,Arena,≥1500 mts,,,0,1
-Anibal J. Cabrera,Hipódromo de San Isidro,Pasto,≤1000 mts,.5,2,.5,4
-Anibal J. Cabrera,Hipódromo de San Isidro,Pasto,1100–1400 mts,0,4,.14285715,7
-Anibal J. Cabrera,Hipódromo de San Isidro,Pasto,≥1500 mts,0,1,0,2
-Francisco L. Fernandes G.,Hipódromo de La Plata,Arena,≤1000 mts,,,0,1
-Francisco L. Fernandes G.,Hipódromo de La Plata,Arena,1100–1400 mts,0,1,0,2
-Francisco L. Fernandes G.,Hipódromo de La Plata,Arena,≥1500 mts,,,.5,2
-Francisco L. Fernandes G.,Hipódromo de Palermo,Arena,≤1000 mts,.5,2,.40000001,5
-Francisco L. Fernandes G.,Hipódromo de Palermo,Arena,1100–1400 mts,1,2,.22222222,9
-Francisco L. Fernandes G.,Hipódromo de Palermo,Arena,≥1500 mts,.33333334,3,.30000001,10
-Francisco L. Fernandes G.,Hipódromo de Palermo,Pasto,≥1500 mts,0,1,0,2
-Francisco L. Fernandes G.,Hipódromo de San Isidro,Arena,1100–1400 mts,1,1,.30000001,10
-Francisco L. Fernandes G.,Hipódromo de San Isidro,Arena,≥1500 mts,,,.66666669,3
-Francisco L. Fernandes G.,Hipódromo de San Isidro,Pasto,1100–1400 mts,1,1,.60000002,5
-Francisco L. Fernandes G.,Hipódromo de San Isidro,Pasto,≥1500 mts,0,2,.2857143,7
-Martin J. Valle,Hipódromo de La Plata,Arena,1100–1400 mts,1,2,.5,6
-Martin J. Valle,Hipódromo de La Plata,Arena,≥1500 mts,,,0,4
-Martin J. Valle,Hipódromo de Palermo,Arena,≤1000 mts,0,1,0,5
-Martin J. Valle,Hipódromo de Palermo,Arena,1100–1400 mts,.66666669,3,.21428572,14
-Martin J. Valle,Hipódromo de Palermo,Arena,≥1500 mts,.33333334,3,.22727273,22
-Martin J. Valle,Hipódromo de Palermo,Pasto,1100–1400 mts,,,0,1
-Martin J. Valle,Hipódromo de Palermo,Pasto,≥1500 mts,0,1,0,2
-Martin J. Valle,Hipódromo de San Isidro,Arena,1100–1400 mts,,,.16666667,6
-Martin J. Valle,Hipódromo de San Isidro,Arena,≥1500 mts,,,.25,8
-Martin J. Valle,Hipódromo de San Isidro,Pasto,≤1000 mts,,,0,6
-Martin J. Valle,Hipódromo de San Isidro,Pasto,1100–1400 mts,.16666667,12,.18518518,54
-Martin J. Valle,Hipódromo de San Isidro,Pasto,≥1500 mts,0,4,.041666668,24
-Walter A. Aguirre,Hipódromo de La Plata,Arena,≤1000 mts,,,.5,2
-Walter A. Aguirre,Hipódromo de La Plata,Arena,1100–1400 mts,0,7,.15789473,19
-Walter A. Aguirre,Hipódromo de La Plata,Arena,≥1500 mts,0,1,0,3
-Walter A. Aguirre,Hipódromo de Palermo,Arena,1100–1400 mts,0,2,0,5
-Walter A. Aguirre,Hipódromo de Palermo,Arena,≥1500 mts,,,0,1
-Walter A. Aguirre,Hipódromo de San Isidro,Pasto,1100–1400 mts,0,1,0,1
-Walter A. Aguirre,Hipódromo de San Isidro,Pasto,≥1500 mts,,,0,3
-Wilfrido A. Torres Maldonado,Hipódromo de La Plata,Arena,1100–1400 mts,0,1,0,1
-Wilfrido A. Torres Maldonado,Hipódromo de Palermo,Arena,≤1000 mts,.5,2,.5,2
-Wilfrido A. Torres Maldonado,Hipódromo de Palermo,Arena,1100–1400 mts,0,1,0,1
-Wilfrido A. Torres Maldonado,Hipódromo de Palermo,Arena,≥1500 mts,0,4,0,5
-Wilfrido A. Torres Maldonado,Hipódromo de San Isidro,Arena,≥1500 mts,0,1,0,1
-Wilfrido A. Torres Maldonado,Hipódromo de San Isidro,Pasto,≤1000 mts,0,1,0,1
-Wilfrido A. Torres Maldonado,Hipódromo de San Isidro,Pasto,1100–1400 mts,0,1,.25,4
-Wilfrido A. Torres Maldonado,Hipódromo de San Isidro,Pasto,≥1500 mts,1,2,1,2
+jockey,track,win_share_90,n_carreras_90,win_share_365,n_carreras_365
+Adrian M. Giannetti,Hipódromo de San Isidro,.46153846,13,.33333334,21
+Anibal J. Cabrera,Hipódromo de La Plata,.125,40,.15789473,133
+Anibal J. Cabrera,Hipódromo de San Isidro,.33333334,12,.27272728,22
+Jeremias Leyes,Hipódromo de La Plata,.2,10,.2,15
+Kevin Banegas,Hipódromo de Palermo,.41666666,12,.41176471,17
+Martin J. Valle,Hipódromo de San Isidro,.13636364,22,.14285715,98

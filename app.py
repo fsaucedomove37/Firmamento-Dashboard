@@ -60,16 +60,16 @@ COLUMN_RENAMES = {
         'p': 'Posición',
         'pwin_bsn': 'BSN Estimado para Ganar',
         'avg_bsn_ejemplar': 'BSN Promedio',
-        'ecpos': 'EC Posición',
-        'take_odds': 'Take Odds'
+        'ecpos': 'Cuerpos',
+        'take_odds': 'Pago'
     },
     'WinShare_Jockeys.csv': {
         'jockey': 'Jockey',
         'track': 'Hipódromo',
         'surface': 'Pista',
         'dist_group_label': 'Distancia',
-        'win_share_90': 'Win Share (90d)',
-        'n_carreras_90': 'Carreras (90d)',
+        'win_share_90': 'Win Share (120d)',
+        'n_carreras_90': 'Carreras (120d)',
         'win_share_365': 'Win Share (365d)',
         'n_carreras_365': 'Carreras (365d)'
     },
@@ -78,8 +78,8 @@ COLUMN_RENAMES = {
         'track': 'Hipódromo',
         'surface': 'Pista',
         'dist_group_label': 'Distancia',
-        'win_share_90': 'Win Share (90d)',
-        'n_carreras_90': 'Carreras (90d)',
+        'win_share_90': 'Win Share (120d)',
+        'n_carreras_90': 'Carreras (120d)',
         'win_share_365': 'Win Share (365d)',
         'n_carreras_365': 'Carreras (365d)'
     },
@@ -88,8 +88,8 @@ COLUMN_RENAMES = {
         'track': 'Hipódromo',
         'surface': 'Pista',
         'dist_group_label': 'Distancia',
-        'win_share_90': 'Win Share (90d)',
-        'n_carreras_hijos_90': 'Carreras Hijos (90d)',
+        'win_share_90': 'Win Share (120d)',
+        'n_carreras_hijos_90': 'Carreras Hijos (120d)',
         'win_share_365': 'Win Share (365d)',
         'n_carreras_hijos_365': 'Carreras Hijos (365d)'
     }
@@ -103,10 +103,20 @@ def format_dataframe(df, filename):
         df["Hora de la Carrera"] = df["Hora de la Carrera"].apply(lambda x: f"{int(x):04d}" if pd.notnull(x) else x)
         df["Hora de la Carrera"] = df["Hora de la Carrera"].str.slice(0, 2) + ":" + df["Hora de la Carrera"].str.slice(2, 4)
 
-    for col in df.columns:
-        if 'Win Share' in col or col in WIN_SHARE_COLUMNS:
-            df[col] = df[col].apply(lambda x: f"{round(x * 100, 2)}%" if pd.notnull(x) else x)
+    # CASO ESPECIAL: Próximos a Correr — redondeo y reemplazo de NA por '-'
+    if filename == 'Proximos a Correr.csv':
+        for col in ['BSN Estimado para Ganar', 'BSN Promedio']:
+            if col in df.columns:
+                df[col] = pd.to_numeric(df[col], errors='coerce').round(0)
+                df[col] = df[col].apply(lambda x: '-' if pd.isna(x) else str(int(x)))
 
+    else:
+        # Para otras tablas: formato porcentual si corresponde
+        for col in df.columns:
+            if 'Win Share' in col or col in WIN_SHARE_COLUMNS:
+                df[col] = df[col].apply(lambda x: f"{round(x * 100, 2)}%" if pd.notnull(x) else x)
+
+    # Formateo general para columnas numéricas
     for col in df.columns:
         if col in CARRERAS_COLUMNS or 'Carreras' in col or 'Posición' in col:
             try:
@@ -118,7 +128,10 @@ def format_dataframe(df, filename):
                 df[col] = df[col].round(2)
             except:
                 pass
+
     return df
+
+
 
 def load_csv(file_name):
     if file_name is None:

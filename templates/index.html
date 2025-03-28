@@ -119,16 +119,16 @@
         <div class="tab-pane fade {% if loop.first %}show active{% endif %}" id="{{key}}" role="tabpanel">
             {% if key == "graficos" %}
             <div class="text-center">
-                <h3>BSN Promedio de los Caballos Próximos a Correr vs Hermanos Paternos</h3>
+                <h3>BSN Promedio de los Caballos Próximos a Correr vs Promedio de sus Hermanos Paternos</h3>
                 <img src="{{ url_for('static', filename='imagenes/grafico_bsn.png') }}" alt="BSN" class="imagen-dashboard">
 
-                <h3>BSN de los Caballos que Corrieron los Últimos 7 días vs Hermanos Paternos en las mismas condiciones (Al menos 10 carreras)</h3>
+                <h3>BSN de los Caballos que Corrieron los Últimos 7 días vs Hermanos Paternos en la Misma Pista</h3>
                 <img src="{{ url_for('static', filename='imagenes/grafico_bsn_7_dias.png') }}" alt="BSN" class="imagen-dashboard">
 
-                <h3>Caballos con Más Victorias los Últimos 90 Días</h3>
+                <h3>Caballos con Más Victorias los Últimos 120 Días</h3>
                 <img src="{{ url_for('static', filename='imagenes/mas_victorias.png') }}" alt="Más Victorias" class="imagen-dashboard">
 
-                <h3>Caballos con Más Carreras los Últimos 90 Días</h3>
+                <h3>Caballos con Más Carreras los Últimos 120 Días</h3>
                 <img src="{{ url_for('static', filename='imagenes/mas_carreras.png') }}" alt="Más Carreras" class="imagen-dashboard">
             </div>
             {% else %}
