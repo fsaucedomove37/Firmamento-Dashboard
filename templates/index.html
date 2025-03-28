@@ -169,7 +169,7 @@ $(document).ready(function () {
 
         headerRow.find('th').each(function () {
             const colName = $(this).text().trim();
-            if (["Ejemplar", "Hipódromo", "Jockey", "Entrenador", "Padrillo"].includes(colName)) {
+            if (["Nombre", "Hipódromo", "Jockey", "Entrenador", "Padrillo"].includes(colName)) {
                 filterRow.append('<th><input type="text" placeholder="Buscar ' + colName + '" /></th>');
             } else {
                 filterRow.append('<th></th>');
