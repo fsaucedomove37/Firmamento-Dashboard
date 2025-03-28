@@ -146,6 +146,19 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 
+<!-- 🔤 NORMALIZAR BÚSQUEDA SIN TILDES -->
+<script>
+// 🔄 Función para eliminar tildes y pasar a minúsculas
+function normalizeString(str) {
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+}
+
+// 🔄 Sobrescribir búsqueda tipo string
+jQuery.fn.DataTable.ext.type.search.string = function (data) {
+    return !data ? '' : normalizeString(data.toString());
+};
+</script>
+
 <script>
 $(document).ready(function () {
     $('.datatable').each(function () {
@@ -163,7 +176,6 @@ $(document).ready(function () {
             }
         });
 
-        // Insertar la fila de filtros por encima
         headerRow.before(filterRow);
 
         const dt = table.DataTable({
@@ -177,12 +189,12 @@ $(document).ready(function () {
         // Activar filtros por columna
         filterRow.find('th').each(function (colIdx) {
             $('input', this).on('keyup change', function () {
-                dt.column(colIdx).search(this.value).draw();
+                const val = normalizeString(this.value);
+                dt.column(colIdx).search(val).draw();
             });
         });
     });
 
-    // Ajustar ancho al cambiar pestañas
     $('a[data-toggle="tab"]').on('shown.bs.tab', function () {
         $.fn.dataTable.tables({visible: true, api: true}).columns.adjust();
     });
