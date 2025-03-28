@@ -4,12 +4,12 @@ import numpy as np
 import os
 
 app = Flask(__name__)
-app.secret_key = 'clave-secreta-firme-2024'  # Cambiá esto por seguridad si lo subís
+
+# Seguridad: Claves desde variables de entorno
+app.secret_key = os.getenv('SECRET_KEY', 'clave-secreta-firme-2024')  # Fallback por si no está definida
+PASSWORD = os.getenv('APP_PASSWORD', 'firmamento123')  # Fallback por si no está definida
 
 DATA_PATH = "Data"
-
-# Contraseña válida
-PASSWORD = 'firmamento123'
 
 # Archivos y pestañas
 DATA_FILES = {
@@ -128,7 +128,7 @@ def load_csv(file_name):
         if os.path.exists(path):
             df = pd.read_csv(path)
             df = format_dataframe(df, file_name)
-            return df.to_html(classes='table table-striped table-sm', index=False)
+            return df.to_html(classes='table table-striped table-sm datatable', index=False)
         else:
             return f"<p class='text-danger'>Archivo <strong>{file_name}</strong> no encontrado.</p>"
     except Exception as e:

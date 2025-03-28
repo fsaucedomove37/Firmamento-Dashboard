@@ -7,3 +7,7 @@ services:
     envVars:
       - key: FLASK_ENV
         value: production
+      - key: SECRET_KEY
+        value: clave-secreta-firme-2024
+      - key: APP_PASSWORD
+        value: firmamento123  
