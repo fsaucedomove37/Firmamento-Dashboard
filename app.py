@@ -2,12 +2,16 @@ from flask import Flask, render_template, request, redirect, url_for, session
 import pandas as pd
 import numpy as np
 import os
+from datetime import timedelta  # ⬅️ Para duración de sesión
 
 app = Flask(__name__)
 
 # Seguridad: Claves desde variables de entorno
 app.secret_key = os.getenv('SECRET_KEY', 'clave-secreta-firme-2024')  # Fallback por si no está definida
 PASSWORD = os.getenv('APP_PASSWORD', 'firmamento123')  # Fallback por si no está definida
+
+# ⏰ Expiración de sesión a 1 hora
+app.permanent_session_lifetime = timedelta(hours=1)
 
 DATA_PATH = "Data"
 
@@ -103,20 +107,16 @@ def format_dataframe(df, filename):
         df["Hora de la Carrera"] = df["Hora de la Carrera"].apply(lambda x: f"{int(x):04d}" if pd.notnull(x) else x)
         df["Hora de la Carrera"] = df["Hora de la Carrera"].str.slice(0, 2) + ":" + df["Hora de la Carrera"].str.slice(2, 4)
 
-    # CASO ESPECIAL: Próximos a Correr — redondeo y reemplazo de NA por '-'
     if filename == 'Proximos a Correr.csv':
         for col in ['BSN Estimado para Ganar', 'BSN Promedio']:
             if col in df.columns:
                 df[col] = pd.to_numeric(df[col], errors='coerce').round(0)
                 df[col] = df[col].apply(lambda x: '-' if pd.isna(x) else str(int(x)))
-
     else:
-        # Para otras tablas: formato porcentual si corresponde
         for col in df.columns:
             if 'Win Share' in col or col in WIN_SHARE_COLUMNS:
                 df[col] = df[col].apply(lambda x: f"{round(x * 100, 2)}%" if pd.notnull(x) else x)
 
-    # Formateo general para columnas numéricas
     for col in df.columns:
         if col in CARRERAS_COLUMNS or 'Carreras' in col or 'Posición' in col:
             try:
@@ -128,10 +128,7 @@ def format_dataframe(df, filename):
                 df[col] = df[col].round(2)
             except:
                 pass
-
     return df
-
-
 
 def load_csv(file_name):
     if file_name is None:
@@ -152,6 +149,7 @@ def login():
     if request.method == 'POST':
         clave = request.form['password']
         if clave == PASSWORD:
+            session.permanent = True  # ⏰ activa duración de sesión
             session['logged_in'] = True
             return redirect(url_for('index'))
         else:
