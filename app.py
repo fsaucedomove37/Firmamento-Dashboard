@@ -49,7 +49,7 @@ COLUMN_RENAMES = {
         'avg_bsn_ejemplar': 'BSN Promedio'
     },
     'Corrieron en los ultimos 7 dias.csv': {
-        'eday': 'Fecha',
+        'eday': 'Fecha de la Carrera',
         'ejemplar': 'Ejemplar',
         'padrillo': 'Padrillo',
         'yegua': 'Yegua',
