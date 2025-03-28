@@ -1,10 +1,15 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for, session
 import pandas as pd
 import numpy as np
 import os
 
 app = Flask(__name__)
+app.secret_key = 'clave-secreta-firme-2024'  # Cambiá esto por seguridad si lo subís
+
 DATA_PATH = "Data"
+
+# Contraseña válida
+PASSWORD = 'firmamento123'
 
 # Archivos y pestañas
 DATA_FILES = {
@@ -16,20 +21,17 @@ DATA_FILES = {
     'graficos': (None, 'Rendimiento Visual')
 }
 
-# Columnas de Win Share a convertir a porcentaje
 WIN_SHARE_COLUMNS = [
     'win_share_90', 'win_share_365',
     'win_share_hijos_90', 'win_share_hijos_365'
 ]
 
-# Columnas a redondear a enteros
 CARRERAS_COLUMNS = [
     'n_carreras_90', 'n_carreras_365',
     'n_carreras_hijos_90', 'n_carreras_hijos_365',
     'Carreras Corridas', 'Victorias'
 ]
 
-# Renombres por archivo
 COLUMN_RENAMES = {
     'Proximos a Correr.csv': {
         'eday': 'Fecha de la Carrera',
@@ -93,37 +95,30 @@ COLUMN_RENAMES = {
     }
 }
 
-
 def format_dataframe(df, filename):
     if filename in COLUMN_RENAMES:
         df.rename(columns=COLUMN_RENAMES[filename], inplace=True)
 
-    # 🕒 Formatear "Hora de la Carrera" a HH:MM
     if "Hora de la Carrera" in df.columns:
         df["Hora de la Carrera"] = df["Hora de la Carrera"].apply(lambda x: f"{int(x):04d}" if pd.notnull(x) else x)
         df["Hora de la Carrera"] = df["Hora de la Carrera"].str.slice(0, 2) + ":" + df["Hora de la Carrera"].str.slice(2, 4)
 
-    # 🎯 Convertir Win Share a porcentaje
     for col in df.columns:
         if 'Win Share' in col or col in WIN_SHARE_COLUMNS:
             df[col] = df[col].apply(lambda x: f"{round(x * 100, 2)}%" if pd.notnull(x) else x)
 
-    # 🔢 Redondear y convertir columnas numéricas
     for col in df.columns:
         if col in CARRERAS_COLUMNS or 'Carreras' in col or 'Posición' in col:
             try:
                 df[col] = pd.to_numeric(df[col], errors='coerce').round(0).astype('Int64')
-            except Exception as e:
-                print(f"❌ Error convirtiendo '{col}' a Int64: {e}")
+            except:
+                pass
         elif pd.api.types.is_numeric_dtype(df[col]):
             try:
                 df[col] = df[col].round(2)
-            except Exception as e:
-                print(f"⚠️ Error redondeando '{col}': {e}")
-    
+            except:
+                pass
     return df
-
-
 
 def load_csv(file_name):
     if file_name is None:
@@ -139,9 +134,27 @@ def load_csv(file_name):
     except Exception as e:
         return f"<p class='text-danger'>Error cargando <strong>{file_name}</strong>: {str(e)}</p>"
 
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        clave = request.form['password']
+        if clave == PASSWORD:
+            session['logged_in'] = True
+            return redirect(url_for('index'))
+        else:
+            return render_template('login.html', error="Contraseña incorrecta")
+    return render_template('login.html')
+
+@app.route('/logout')
+def logout():
+    session.pop('logged_in', None)
+    return redirect(url_for('login'))
 
 @app.route('/')
 def index():
+    if not session.get('logged_in'):
+        return redirect(url_for('login'))
+
     tables = {}
     for key, (filename, title) in DATA_FILES.items():
         html_table = load_csv(filename)
@@ -151,9 +164,5 @@ def index():
         }
     return render_template('index.html', tables=tables)
 
-
 if __name__ == '__main__':
-    from waitress import serve
-    serve(app, host='0.0.0.0', port=8080)
-
-
+    app.run(debug=True)
